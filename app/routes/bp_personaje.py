@@ -28,11 +28,11 @@ def insert_data_api():
 
 @bp_personaje.route('/profile/<id>',methods=['GET'])
 def profile(id):
-    personaje = db.personaje.find({"id":int(id)})
-    listapersonaje=[]
-    for p in personaje:
-        listapersonaje.append(p)
-    return render_template("profile.html",listapersonaje=listapersonaje)
+    personaje = db.personaje.find_one({"id":int(id)})
+    #listapersonaje=[]
+    #for p in personaje:
+    #    listapersonaje.append(p)
+    return render_template("profile.html",personaje=personaje)
 
 
 
